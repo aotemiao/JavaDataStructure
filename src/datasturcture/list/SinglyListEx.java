@@ -11,6 +11,7 @@ public class SinglyListEx {
         list[3] = 1;
         SinglyList<Integer> listAcs = new SinglyList<>(list);
         System.out.println(isSorted(listAcs, false)+"");
+
     }
 }
 

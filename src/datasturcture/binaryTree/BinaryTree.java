@@ -281,19 +281,17 @@ public class BinaryTree<T> extends Object  //implements BinaryTTree<T>
         System.out.print("中根次序遍历二叉树（使用栈）：");
         Stack<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();   //创建一个空栈
         BinaryNode<T> p = this.root;
-        while(p!=null || !stack.isEmpty())       //p非空或栈非空时
+        while (p != null || !stack.isEmpty())       //p非空或栈非空时
         {
-            if(p!=null)
-            {
+            if (p != null) {
                 stack.push(p);                   //p结点入栈
-                p=p.left;                        //进入左子树
-            }
-            else                                 //p为空且栈非空时
+                p = p.left;                        //进入左子树
+            } else                                 //p为空且栈非空时
             {
                 System.out.print("∧ ");
-                p=stack.pop();                   //p指向出栈结点
-                System.out.print(p.data+" ");    //访问结点
-                p=p.right;                       //进入右子树
+                p = stack.pop();                   //p指向出栈结点
+                System.out.print(p.data + " ");    //访问结点
+                p = p.right;                       //进入右子树
             }
         }
         System.out.println("∧");
@@ -346,35 +344,34 @@ public class BinaryTree<T> extends Object  //implements BinaryTTree<T>
 //
 
     //TODO:以标明空子树的先根次序遍历序列构造二叉树，使用栈----------------------------------------------------------------------------------------------------------------------------------------
+    //TODO：boolean leftChild
     public BinaryTree(T[] prelist) {
         Stack<BinaryNode> stack = new SeqStack<>(prelist.length);
-
-        if (prelist[0] != "^") {      //根节点不为空
+        if (prelist[0] != null) {
             this.root = new BinaryNode<T>(prelist[0]);
-            stack.push(this.root);      // 结点进栈
-
+            stack.push(this.root);
+            boolean leftChild = true;
             for (int i = 1; i < prelist.length; i++) {
-                T previewsNodeData = prelist[i - 1];    //前一个结点数据
-                BinaryNode currentNode = new BinaryNode(prelist[i]);    //当前节点数据
-                if (previewsNodeData != "^") {        //如果前一个操作数不为空，说明当前结点是前结点的左子树
-                   // System.out.println("对" + stack.peek() + "结点进行操作");
-                    if (currentNode.data != "^") {    //如果当前操作数不为空
+                if (prelist[i] != null) {
+                    BinaryNode currentNode = new BinaryNode(prelist[i]);
+                    if (leftChild) {//成为栈顶左子树
                         stack.peek().left = currentNode;
-                        stack.push(currentNode);    // 结点进栈（栈中的结点均未处理右子树）
-                    } else {
-                        stack.peek().left = null;
+                        stack.push(currentNode);
+                    } else {//成为栈顶右子树
+                        stack.pop().right = currentNode;
+                        stack.push(currentNode);
+                        leftChild = true;
                     }
                 } else {
-                    if (!stack.isEmpty()) {     //栈中还有未连接右子树的结点
-                        //System.out.println("对" + stack.peek() + "结点进行操作");
-
-                        if (currentNode.data != "^") {
-                            stack.pop().right = currentNode;    //栈顶结点处理完毕，出栈
-                            stack.push(currentNode);    // 结点进栈
-                        } else
-                            stack.pop().right = null;
+                    if (leftChild) {
+                        leftChild = false;
+                    } else {    //叶子节点，栈顶出栈
+                        stack.pop();
                     }
+
                 }
+
+
             }
         } else this.root = null;
 

@@ -235,6 +235,7 @@ public class SinglyList<T> extends Object //implements List<T>
     //说明：只能返回SinglyList<T>，不能返回子类实例，子类必须覆盖。
     //TODO:判断list是否排序，asc指定升/降序
     public static <T extends Comparable<? super T>> boolean isSorted(SinglyList<T> list, boolean asc) {
+        //todo 链表空
         Node<T> p = list.head.next;
         if (asc) {
             while (p.next != null) {
@@ -253,6 +254,7 @@ public class SinglyList<T> extends Object //implements List<T>
         }
         return true;
     }
+
 
 
     //第10章

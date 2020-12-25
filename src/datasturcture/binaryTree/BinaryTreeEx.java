@@ -9,9 +9,11 @@ public class BinaryTreeEx extends BinaryTreeIsSorted {
         System.out.println(testTree1.toString());
 
         System.out.println("----------------");
-        String prelist[] = {"6", "2", "1", "^", "^", "4", "3", "^", "^", "5", "^", "^", "7", "^", "9", "8", "^", "^", "^"};
+//        String prelist[] = {"6", "2", "1", "^", "^", "4", "3", "^", "^", "5", "^", "^", "7", "^", "9", "8", "^", "^", "^"};
+        String prelist[] = {"6", "2", "1", null, null, "4", "3",null, null};
+
         BinaryTree testtree2 = new BinaryTree(prelist);
-        testtree2.inorderTraverse();
+        System.out.println(testtree2.toString());
         System.out.println("isSorted(testtree2)="+isSorted(testtree2));
 
 

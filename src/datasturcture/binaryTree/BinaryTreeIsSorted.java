@@ -20,7 +20,6 @@ public class BinaryTreeIsSorted {
         if (front != null && p.data.compareTo((T) front.data) < 0) return false;
         front = p;
         return isSorted(p.right);
-
     }
 
 }
