@@ -343,6 +343,58 @@ public class BinaryTree<T> extends Object  //implements BinaryTTree<T>
 //
 //
 
+    public void removeAll(T key){
+        if (key == null) {
+            return;
+        }
+        if (this.root.data.equals(key)) {
+            this.root.left=null;
+            this.root.right=null;
+        }
+        else{
+            removeAll(key, this.root.left);
+            removeAll(key, this.root.right);
+        }
+    }
+    public void removeAll(T key, BinaryNode p) {
+        if (p == null) {
+            return;
+        }
+        if (p.left.data.equals(key)) {
+            p.left=null;
+        }
+        if (p.right.data.equals(key)) {
+            p.right=null;
+        }
+        else{
+            removeAll(key, p.left);
+            removeAll(key, p.right);
+        }
+    }
+
+    public void removeAll2(T key)
+    {
+        if(key==null)
+        {
+            return;
+        }
+        this.root = removeAll2(this.root, key);
+    }
+    //在以p结点为根的子树中，查找并删除所有以key元素结点为根的子树，返回key元素结点；
+    //若未找到key元素结点，则不删除，返回null
+    private BinaryNode<T> removeAll2(BinaryNode<T> p, T key)
+    {
+        if(p==null || key.equals(p.data))            	//查找成功，返回null，即删除以p结点为根的子树
+        {
+            return null;
+        }
+        p.left = removeAll2(p.left, key);        	//在左子树中查找并删除，递归调用
+        p.right = removeAll2(p.right, key);      	//在右子树中查找并删除，递归调用
+        return p;
+    }
+
+
+
     //TODO:以标明空子树的先根次序遍历序列构造二叉树，使用栈----------------------------------------------------------------------------------------------------------------------------------------
     //TODO：boolean leftChild
     public BinaryTree(T[] prelist) {
@@ -495,3 +547,4 @@ public class BinaryTree<T> extends Object  //implements BinaryTTree<T>
 
 }
 ////@author：Yeheya。2016-1-22，2019年10月13日，2020年2月16日
+////@author:Xuyuefeng
