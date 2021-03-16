@@ -11,7 +11,7 @@ public class QuickSort {
 
     public static void sort(Comparable[] a, int lo, int hi) {
         if (hi <= lo) return;
-        int j = partition(a, lo, hi);
+        int j = partition(a, lo, hi);//todo:当数组太小时调用插入排序
         sort(a, lo, j - 1);
         sort(a, j, hi);
     }
@@ -20,8 +20,8 @@ public class QuickSort {
         int i = lo, j = hi + 1;
         Comparable v = a[lo];
         while (true) {
-            while (less(a[++i], v)) if (i == hi) break;
-            while (less(v, a[--j])) if (j == lo) break;
+            while (less(a[++i], v)) if (i == hi) break;//todo:优化
+            while (less(v, a[--j]));   //if (j == lo) break;比较元素不会比本身还小
             if (i >= j) break;
             exch(a, i, j);
         }
