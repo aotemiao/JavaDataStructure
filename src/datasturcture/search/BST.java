@@ -139,7 +139,10 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (cmp < 0) x.left = delete(x.left, key);
         else if (cmp > 0) x.right = delete(x.right, key);
         else{
-            // TODO: 2021/3/19
+            Node t = x;
+            x = min(t.right);//后继节点
+            x.left = t.left;
+            x.right=deleteMin(t.right);//删去后继节点的右子树
         }
         x.N = size(x.left) + size(x.right) + 1;
         return x;
