@@ -1,5 +1,7 @@
 package datasturcture.graph;
 
+import datasturcture.bag.Bag;
+
 public class Graph {
     private final int V;
     private int E;
