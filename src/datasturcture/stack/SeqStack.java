@@ -11,7 +11,7 @@ import datasturcture.list.SeqList;
 //1. 顺序栈
 
 //顺序栈类，最终类，实现栈接口，T表示数据元素的数据类型
-public final class SeqStack<T> implements Stack<T>
+public final class SeqStack<T> implements StackAPI<T>
 {
     private SeqList<T> list;                     //使用顺序表（2.2.2节）存储栈元素
 

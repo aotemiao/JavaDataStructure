@@ -8,13 +8,24 @@ public class Graph {
     private Bag<Integer>[] adj;
 
     public Graph(int V) {
-        this.V=V;
-        this.E=0;
+        this.V = V;
+        this.E = 0;
         for (int v = 0; v < V; v++) {
             adj[v] = new Bag<Integer>();
         }
     }
 
+    public int V() {
+        return V;
+    }
+
+    public int E() {
+        return E;
+    }
+
+    public Iterable<Integer> adj(int v) {
+        return adj[v];
+    }
 
     public static int degree(GraphAPI G, int v) {
         int degree = 0;

@@ -7,13 +7,7 @@ package datasturcture.ByStackBinaryTree;//¡¶Êı¾İ½á¹¹£¨Java°æ£©£¨µÚ5°æ£©ÊÔÌâ¿â¡·£
 //¡ì6.2.6   ¶ş²æÊ÷µÄ¶ş²æÁ´±íÊµÏÖ
 //¡¾ÊµÑéÌâ6-4¡¿¶ş²æÊ÷²Ù×÷µÄ·Çµİ¹éËã·¨£¬Ê¹ÓÃÕ»¡£
 
-import datasturcture.binaryTree.BinaryNode;
-import datasturcture.binaryTree.BinaryTree;
-import datasturcture.stack.LinkedStack;
-import datasturcture.stack.SeqStack;
-import datasturcture.stack.Stack;
-
-public class ByStackBinaryTree_preInlist 
+public class ByStackBinaryTree_preInlist
 {
     public static void main(String[] args) 
     {

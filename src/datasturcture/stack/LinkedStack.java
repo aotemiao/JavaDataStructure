@@ -9,7 +9,7 @@ import datasturcture.list.SinglyList;
 //2.  链式栈
 
 //链式栈类，最终类，实现栈接口，T表示数据元素的数据类型
-public final class LinkedStack<T> implements Stack<T>
+public final class LinkedStack<T> implements StackAPI<T>
 {
     private SinglyList<T> list;                  //使用单链表（2.3.2节）存储栈元素
 

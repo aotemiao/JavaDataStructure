@@ -11,7 +11,7 @@ import datasturcture.queue.LinkedQueue;
 import datasturcture.queue.Queue;
 import datasturcture.stack.LinkedStack;
 import datasturcture.stack.SeqStack;
-import datasturcture.stack.Stack;
+import datasturcture.stack.StackAPI;
 
 //二叉树类，二叉链表存储，T指定结点的元素类型       //一些方法作为实验题，写在ExBinaryTree<T>类中
 public class BinaryTree<T> extends Object  //implements BinaryTTree<T>
@@ -279,7 +279,7 @@ public class BinaryTree<T> extends Object  //implements BinaryTTree<T>
     public void inorderTraverse()                //中根次序遍历二叉树的非递归算法
     {
         System.out.print("中根次序遍历二叉树（使用栈）：");
-        Stack<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();   //创建一个空栈
+        StackAPI<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();   //创建一个空栈
         BinaryNode<T> p = this.root;
         while (p != null || !stack.isEmpty())       //p非空或栈非空时
         {
@@ -398,7 +398,7 @@ public class BinaryTree<T> extends Object  //implements BinaryTTree<T>
     //TODO:以标明空子树的先根次序遍历序列构造二叉树，使用栈----------------------------------------------------------------------------------------------------------------------------------------
     //TODO：boolean leftChild
     public BinaryTree(T[] prelist) {
-        Stack<BinaryNode> stack = new SeqStack<>(prelist.length);
+        StackAPI<BinaryNode> stack = new SeqStack<>(prelist.length);
         if (prelist[0] != null) {
             this.root = new BinaryNode<T>(prelist[0]);
             stack.push(this.root);

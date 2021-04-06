@@ -6,7 +6,7 @@ import datasturcture.binaryTree.BinaryNode;
 import datasturcture.binaryTree.BinaryTree;
 import datasturcture.stack.LinkedStack;
 import datasturcture.stack.SeqStack;
-import datasturcture.stack.Stack;
+import datasturcture.stack.StackAPI;
 
 //二叉树类，二叉链表存储； 非递归算法，使用栈。
 public class ByStackBinaryTree<T> extends BinaryTree<T>
@@ -21,7 +21,7 @@ public class ByStackBinaryTree<T> extends BinaryTree<T>
     public T search(T key)
     {
         System.out.print("先根次序遍历：  ");
-        Stack<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();   //栈
+        StackAPI<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();   //栈
         BinaryNode<T> p = this.root;
         while (p!=null || !stack.isEmpty())      //p非空或栈非空时
             if (p!=null)
@@ -45,7 +45,7 @@ public class ByStackBinaryTree<T> extends BinaryTree<T>
     public void postorder()
     {
         System.out.print("后根次序遍历：  ");
-        Stack<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();
+        StackAPI<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();
         BinaryNode<T> p=this.root, front=null;
 //不行        boolean left=true;                                 //left区分向左/右子树走，先左后右
         while (p!=null || !stack.isEmpty())                //p非空或栈非空时
@@ -88,7 +88,7 @@ public class ByStackBinaryTree<T> extends BinaryTree<T>
         if (prelist.length==0) 
             return;
         this.root = new BinaryNode<T>(prelist[0]);         //创建根结点
-        Stack<BinaryNode<T>> stack = new SeqStack<BinaryNode<T>>(); //空栈
+        StackAPI<BinaryNode<T>> stack = new SeqStack<BinaryNode<T>>(); //空栈
         stack.push(this.root);                             //根结点进栈
         BinaryNode<T> p = this.root;
         boolean leftChild=true;                  //leftChild区分将创建p的左/右孩子，默认先左后右
@@ -123,7 +123,7 @@ public class ByStackBinaryTree<T> extends BinaryTree<T>
     public void printGenList()
     {
         System.out.print("二叉树的广义表表示：");
-        Stack<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();
+        StackAPI<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();
         BinaryNode<T> p=this.root, front=null;             //设front指向p在后根遍历次序下的前驱结点
         while (p!=null || !stack.isEmpty()) 
             if (p!=null)
@@ -173,8 +173,8 @@ public class ByStackBinaryTree<T> extends BinaryTree<T>
 //        ByStackBinaryTree<T> copytree = new ByStackBinaryTree<T>();
 //        if (bitree.isEmpty()) 
 //            return copytree;
-        Stack<BinaryNode<T>> stack1 = new SeqStack<BinaryNode<T>>();    //栈
-        Stack<BinaryNode<T>> stack2 = new LinkedStack<BinaryNode<T>>(); //栈
+        StackAPI<BinaryNode<T>> stack1 = new SeqStack<BinaryNode<T>>();    //栈
+        StackAPI<BinaryNode<T>> stack2 = new LinkedStack<BinaryNode<T>>(); //栈
         this.root = new BinaryNode<T>(bitree.root.data);  //创建根结点
         stack1.push(bitree.root);                         //根结点进栈
         stack2.push(this.root);                           //根结点进栈

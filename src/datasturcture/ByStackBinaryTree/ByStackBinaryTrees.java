@@ -8,8 +8,7 @@ package datasturcture.ByStackBinaryTree;//¡¶Êý¾Ý½á¹¹£¨Java°æ£©£¨µÚ5°æ£©ÊÔÌâ¿â¡·£
 import datasturcture.binaryTree.BinaryNode;
 import datasturcture.binaryTree.BinaryTree;
 import datasturcture.stack.LinkedStack;
-import datasturcture.stack.SeqStack;
-import datasturcture.stack.Stack;
+import datasturcture.stack.StackAPI;
 
 public class ByStackBinaryTrees                                    //ÎªÌØ¶¨¶þ²æÊ÷Ôö¼Ó¾²Ì¬·½·¨
 {
@@ -17,7 +16,7 @@ public class ByStackBinaryTrees                                    //ÎªÌØ¶¨¶þ²æÊ
     //ºó¸ù´ÎÐò±éÀú¶þ²æÊ÷µÄ·ÇµÝ¹éËã·¨£¬Ëã·¨Ê¹ÓÃfront¼Ç×¡pµÄÇ°Çý½áµã
     public static<T> void leafToRoot(BinaryTree<T> bitree)
     {
-        Stack<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();
+        StackAPI<BinaryNode<T>> stack = new LinkedStack<BinaryNode<T>>();
         BinaryNode<T> p=bitree.root, front=null;
         while (p!=null || !stack.isEmpty())                //p·Ç¿Õ»òÕ»·Ç¿ÕÊ±
             if (p!=null)
@@ -65,7 +64,7 @@ public class ByStackBinaryTrees                                    //ÎªÌØ¶¨¶þ²æÊ
         if (genlist.length()==0 || genlist.charAt(0)=='^')
             return bitree;
         i=0;
-        Stack<BinaryNode<String>> stack = new LinkedStack<BinaryNode<String>>();//Õ»
+        StackAPI<BinaryNode<String>> stack = new LinkedStack<BinaryNode<String>>();//Õ»
         bitree.root = new BinaryNode<String>(sub(genlist));//´´½¨¸ù½áµã£¬ÖµÎª´ÓµÚi¸ö×Ö·û¿ªÊ¼µÄ×Ó´®£¬¸Ä±äiµ½×Ó´®µÄÏÂ¸ö×Ö·û
         BinaryNode<String> p = bitree.root;
         boolean leftChild=true;                  //Ö®ºó½«´´½¨pµÄ×óº¢×Ó
