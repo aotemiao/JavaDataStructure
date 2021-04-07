@@ -8,7 +8,7 @@ package datasturcture.binaryTree;
 //【思考题6-3】深拷贝【习题解答】
 
 import datasturcture.queue.LinkedQueue;
-import datasturcture.queue.Queue;
+import datasturcture.queue.QueueAPI;
 import datasturcture.stack.LinkedStack;
 import datasturcture.stack.SeqStack;
 import datasturcture.stack.StackAPI;
@@ -434,7 +434,7 @@ public class BinaryTree<T> extends Object  //implements BinaryTTree<T>
         if (bitree.root == null) {
             return true;
         }
-        Queue<BinaryNode> queue = new LinkedQueue<>();
+        QueueAPI<BinaryNode> queue = new LinkedQueue<>();
         queue.add(bitree.root);
         BinaryNode primeNode;
         while (!queue.isEmpty()) {          //队列中存入所有叶子结点

@@ -7,7 +7,7 @@ package datasturcture.queue;
 //1.  顺序循环队列
 
 //顺序循环队列类，最终类，实现队列接口，T表示数据元素的数据类型
-public final class SeqQueue<T>  implements Queue<T>
+public final class SeqQueue<T>  implements QueueAPI<T>
 {
     private Object element[];                    //存储队列数据元素的数组
     private int front, rear;                     //front、rear分别为队列头尾下标

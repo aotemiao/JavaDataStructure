@@ -8,7 +8,7 @@ import datasturcture.list.Node;
  */
 //链式队列类，最终类，实现队列接口，T表示数据元素的数据类型
 //使用单链表设计，不带头结点、有rear尾指针，尾插入时间O(1)
-public final class LinkedQueue<T>  implements Queue<T>
+public final class LinkedQueue<T>  implements QueueAPI<T>
 {
     private Node<T> front, rear;                 //front和rear分别指向队头和队尾结点
 

@@ -3,12 +3,12 @@ package datasturcture.graph;
 import datasturcture.stack.SeqStack;
 import datasturcture.stack.Stack;
 
-public class DeepFirstPath {
+public class DeepFirstPaths {
     private boolean[] marked;
     private int[] edgeTo;
     private final int s;//Æðµã
 
-    public DeepFirstPath(Graph G, int s) {
+    public DeepFirstPaths(Graph G, int s) {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         this.s = s;
